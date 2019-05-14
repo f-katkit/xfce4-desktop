@@ -1,0 +1,23 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: docker:test-git
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          command: docker build -t fkatkit/xfce4-desktop .
+      - run:
+          command: docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
+      - run:
+          command: docker push fkatkit/xfce4-desktop
+workflows:
+  version: 2
+  build-master:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master

@@ -32,8 +32,7 @@ RUN apt-get update \
       && apt-get clean \
       && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-EXPOSE 22
-EXPOSE 5901
+EXPOSE 22 5901
 
 COPY entrypoint.sh /root/entrypoint.sh
 
