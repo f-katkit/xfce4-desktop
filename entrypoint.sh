@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# test
+
 echo ${VNC_PASSWORD} | vncpasswd -f > /root/.vnc/passwd
 echo "root:${SSH_PASSWORD}" | chpasswd
 
