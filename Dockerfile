@@ -10,6 +10,8 @@ ENV USER root
 ENV SSH_PASSWORD input_your_password
 ENV VNC_PASSWORD input_your_vnc_password
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 RUN set -x \
         && apt-get update -qq \
         && apt-get install -y -qq \
